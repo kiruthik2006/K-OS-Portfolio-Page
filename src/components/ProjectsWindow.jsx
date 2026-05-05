@@ -15,7 +15,7 @@ const ProjectsWindow = () => {
   const [error, setError] = useState(null);
 
   // ✅ FIXED USERNAME
-  const USERNAME = "Kiruthikk911";
+  const USERNAME = "kiruthik2006";
 
   useEffect(() => {
     const fetchData = async () => {
