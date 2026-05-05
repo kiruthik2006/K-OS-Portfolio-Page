@@ -21,7 +21,7 @@ const ContactWindow = () => {
   };
 
   const handleRealEmail = () => {
-    window.location.href = `mailto:kiruthik2006@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(formData.message)}`;
+    window.location.href = `mailto:kiruthikk911@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(formData.message)}`;
   };
 
   return (
@@ -49,7 +49,7 @@ const ContactWindow = () => {
         <div className="flex items-center gap-3">
           <span className="text-xs text-gray-500 w-12 text-right">To:</span>
           <div className="flex-1 bg-white/5 px-3 py-1.5 rounded-md text-sm text-blue-300 font-mono border border-white/5">
-            kiruthik2006@gmail.com
+            kiruthikk911@gmail.com
           </div>
         </div>
         <div className="flex items-center gap-3">
