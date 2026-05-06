@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Gamepad2, Info, Grid } from "lucide-react"; // Changed Skull to Grid
+import { Box, Gamepad2, Info, Circle, X, Zap } from "lucide-react";
 
 const GamesWindow = ({ onLaunchGame }) => {
   return (
@@ -32,12 +32,14 @@ const GamesWindow = ({ onLaunchGame }) => {
             onClick={() => onLaunchGame("minecraft")}
             className="group relative flex flex-col items-center gap-3 p-4 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 hover:border-green-500/50 transition-all active:scale-95 text-left"
           >
-            <div className="w-full aspect-square bg-green-800 rounded-lg flex items-center justify-center relative overflow-hidden shadow-lg group-hover:shadow-green-500/20 transition-shadow">
+            <div className="w-full aspect-square bg-green-800 rounded-lg relative overflow-hidden shadow-lg group-hover:shadow-green-500/20 transition-all group-hover:opacity-60 group-hover:bg-green-900">
               <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-black to-transparent"></div>
-              <Box
-                size={40}
-                className="text-white drop-shadow-md relative z-10 group-hover:scale-110 transition-transform duration-300"
-              />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <Box
+                  size={40}
+                  className="text-white drop-shadow-md relative z-10 group-hover:scale-110 group-hover:opacity-0 transition-all duration-300"
+                />
+              </div>
               <div className="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-[2px]">
                 <span className="bg-green-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
                   PLAY NOW
@@ -52,30 +54,61 @@ const GamesWindow = ({ onLaunchGame }) => {
             </div>
           </button>
 
-          {/* GAME 2: 2048 (REPLACED DOOM) */}
+          {/* GAME 2: TIC TAC TOE */}
           <button
-            onClick={() => onLaunchGame("2048")}
-            className="group relative flex flex-col items-center gap-3 p-4 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 hover:border-yellow-500/50 transition-all active:scale-95 text-left"
+            onClick={() => onLaunchGame("tictactoe")}
+            className="group relative flex flex-col items-center gap-3 p-4 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 hover:border-blue-500/50 transition-all active:scale-95 text-left"
           >
-            <div className="w-full aspect-square bg-yellow-600/20 rounded-lg flex items-center justify-center relative overflow-hidden shadow-lg group-hover:shadow-yellow-500/20 transition-shadow">
+            <div className="w-full aspect-square bg-blue-600/20 rounded-lg relative overflow-hidden shadow-lg group-hover:shadow-blue-500/20 transition-all group-hover:opacity-60 group-hover:bg-blue-900">
               <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-black to-transparent"></div>
-              <Grid
-                size={40}
-                className="text-yellow-400 drop-shadow-md relative z-10 group-hover:scale-110 transition-transform duration-300"
-              />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="relative z-10 group-hover:scale-110 group-hover:opacity-0 transition-all duration-300 flex gap-1">
+                  <X size={28} className="text-red-500" />
+                  <Circle size={28} className="text-blue-500" />
+                </div>
+              </div>
 
               <div className="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-[2px]">
-                <span className="bg-yellow-500 text-black text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
-                  SOLVE IT
+                <span className="bg-blue-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
+                  PLAY NOW
                 </span>
               </div>
             </div>
             <div className="w-full">
-              <h3 className="text-sm font-bold text-gray-200 group-hover:text-yellow-400 transition-colors">
-                2048
+              <h3 className="text-sm font-bold text-gray-200 group-hover:text-blue-400 transition-colors">
+                Tic Tac Toe
               </h3>
               <p className="text-[10px] text-gray-500 mt-0.5">
-                Gabriele Cirulli
+                Classic Strategy
+              </p>
+            </div>
+          </button>
+
+          {/* GAME 3: SNAKE */}
+          <button
+            onClick={() => onLaunchGame("snake")}
+            className="group relative flex flex-col items-center gap-3 p-4 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 hover:border-emerald-500/50 transition-all active:scale-95 text-left"
+          >
+            <div className="w-full aspect-square bg-emerald-600/20 rounded-lg relative overflow-hidden shadow-lg group-hover:shadow-emerald-500/20 transition-all group-hover:opacity-60 group-hover:bg-emerald-900">
+              <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-black to-transparent"></div>
+              <div className="absolute inset-0 flex items-center justify-center">
+                <Zap
+                  size={40}
+                  className="text-emerald-400 drop-shadow-md relative z-10 group-hover:scale-110 group-hover:opacity-0 transition-all duration-300"
+                />
+              </div>
+              <div className="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-[2px]">
+                <span className="bg-emerald-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
+                  PLAY NOW
+                </span>
+              </div>
+            </div>
+            <div className="w-full">
+              <h3 className="text-sm font-bold text-gray-200 group-hover:text-emerald-400 transition-colors">
+                Snake
+              </h3>
+              <p className="text-[10px] text-gray-500 mt-0.5">
+                Nokia Classic
               </p>
             </div>
           </button>

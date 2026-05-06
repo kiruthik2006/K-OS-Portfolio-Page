@@ -1,10 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
-// UNCOMMENTED Terminal
 import Terminal from "./TerminalWindow";
 import ProjectsWindow from "./ProjectsWindow";
 import GamesWindow from "./GamesWindow";
-import ContactWindow from "./ContactWindow"; // ✅ IMPORT THIS
+import ContactWindow from "./ContactWindow";
+import TicTacToe from "./TicTacToe";
+import SnakeGame from "./SnakeGame";
 
 const WindowFrame = ({
   title,
@@ -15,7 +16,7 @@ const WindowFrame = ({
   minWidth = "w-[600px] h-[400px]",
 }) => (
   <div
-    className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 ${minWidth} bg-[#0a0a0a] border border-white/10 rounded-xl shadow-2xl overflow-hidden flex flex-col ${isActive ? "z-50 ring-1 ring-white/20" : "z-40 opacity-90"}`}
+    className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 ${minWidth} bg-black border border-white/10 rounded-xl shadow-2xl overflow-hidden flex flex-col ${isActive ? "z-50 ring-1 ring-white/20" : "z-40 opacity-90"}`}
     onClick={onClick}
   >
     <div className="h-9 bg-[#111] border-b border-white/5 flex items-center justify-between px-3 select-none">
@@ -148,14 +149,14 @@ const DesktopWindows = ({
               onClose={() => onClose("games")}
               minWidth="w-[700px] h-[500px]"
             >
-              {/* Pass the onOpenGame function so clicking Minecraft opens the game window */}
               <GamesWindow onLaunchGame={onOpenGame} />
             </WindowFrame>
           </div>
         </motion.div>
       )}
-      {/* 3. 2048 WINDOW */}
-      {activeWindows.includes("2048") && (
+
+      {/* 3. TIC TAC TOE WINDOW */}
+      {activeWindows.includes("tictactoe") && (
         <motion.div
           drag
           dragMomentum={false}
@@ -163,18 +164,34 @@ const DesktopWindows = ({
         >
           <div className="pointer-events-auto">
             <WindowFrame
-              title="2048"
-              isActive={focusedWindow === "2048"}
-              onClick={() => onFocus("2048")}
-              onClose={() => onClose("2048")}
-              minWidth="w-[500px] h-[650px]"
+              title="Tic Tac Toe"
+              isActive={focusedWindow === "tictactoe"}
+              onClick={() => onFocus("tictactoe")}
+              onClose={() => onClose("tictactoe")}
+              minWidth="w-[400px] h-[500px]"
             >
-              {/* CHANGED URL: The original GitHub version allows embedding */}
-              <iframe
-                src="https://gabrielecirulli.github.io/2048/"
-                className="w-full h-full border-none bg-white"
-                title="2048"
-              />
+              <TicTacToe />
+            </WindowFrame>
+          </div>
+        </motion.div>
+      )}
+
+      {/* 4. SNAKE WINDOW */}
+      {activeWindows.includes("snake") && (
+        <motion.div
+          drag
+          dragMomentum={false}
+          className="absolute inset-0 pointer-events-none"
+        >
+          <div className="pointer-events-auto">
+            <WindowFrame
+              title="Snake"
+              isActive={focusedWindow === "snake"}
+              onClick={() => onFocus("snake")}
+              onClose={() => onClose("snake")}
+              minWidth="w-[400px] h-[520px]"
+            >
+              <SnakeGame />
             </WindowFrame>
           </div>
         </motion.div>

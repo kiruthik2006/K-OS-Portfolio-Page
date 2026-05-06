@@ -29,6 +29,15 @@ export default function App() {
     }
   }, [hasBooted]);
 
+  useEffect(() => {
+    if (activeWindows.length > 0) {
+      const lastWindow = activeWindows[activeWindows.length - 1];
+      if (focusedWindow !== lastWindow) {
+        setFocusedWindow(lastWindow);
+      }
+    }
+  }, [activeWindows, focusedWindow]);
+
   const toggleWindow = (id) => {
     if (dockHighlight === id) setDockHighlight(null);
 
